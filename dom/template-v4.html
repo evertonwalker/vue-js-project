@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- DIRETIVAS SÃO ALGO COMUM NO VUE, ELAS TE AJUDAM A CRIAR RELAÇÕE E REFERÊNCIAS COM OS OBJETOS CRIADOS GLOBAL DO VUE-->
+        <a v-bind:href="link" class="href">Google</a>
+        <br>
+
+        <input type="text" v-model="test"> <span>{{ test }} </span>
+        
+    </div>
+</body>
+
+
+<script>
+    const v = new Vue({
+        el: '#app',
+        data: {
+            link: 'http://google.com.br',
+            test: ''
+        },
+    });
+</script>
+
+</html>

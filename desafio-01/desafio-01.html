@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <p> {{ name }} - {{ age }} </p>
+        <p>
+            {{ age  * 3 }}
+        </p>
+        <p>
+            {{ randomNumber() }}
+        </p>
+        
+        <div>
+            <img v-bind:src="srcImg" alt="" height="400">
+        </div>
+        <div>
+            <input type="text" class="text" v-bind:value="name">
+        </div>
+
+    </div>
+
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            name: 'Everton Walker',
+            age: 26,
+            srcImg: 'https://avatars.githubusercontent.com/u/12918802?v=4',
+        },
+        methods: {
+            randomNumber() {
+                return Math.random();
+            }
+        }
+
+    });
+</script>
+</html>

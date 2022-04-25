@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Essa diretiva ajuda a interporlar conteúdos completos de HTML dentro do DOM, isso ajuda porque nós permite
+        tomar cuidado com ataque do tipo CROSS SITE SCRIPTING ( XSS ) que são scripts inseridos dentro de inputs com o propósito de 
+        resgatar ou manipular dados do seu servidor.
+        A melhor forma de resolver isso é sanitizando os dados antes de salvar no backend para previnir que esses dados
+        sejam recuperados depois no front-end e depois manipulados.
+        -->
+       <p v-html="linkHtml">
+       
+       </p>
+
+       <p v-html="imageHtml">
+
+       </p>
+
+    </div>
+</body>
+
+
+<script>
+    const v = new Vue({
+        el: '#app',
+        data: {
+            linkHtml: '<a href="http://google.com.br"> Google </a>',
+            imageHtml: '<img src="test.cx" onerror="alert("atack")" />',
+        },
+    });
+</script>
+
+</html>
