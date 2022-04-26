@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>
+            {{ count }}
+        </p>
+        <button v-on:click="sum(5, $event)">Somar 5</button>
+        <p v-on:mousemove="getCordernates">
+            Mouse: {{ x }} e y: {{ y }}
+             <!-- <span v-on:mousemove="stop"> PARAR AQUI</span> -->
+             <!-- <span v-on:mousemove.stop=""> PARAR AQUI</span> -->
+             <span v-on:mousemove.stop.prevent=""> PARAR AQUI</span>
+        </p>
+        <!-- Duas formas de previnir e modificar os eventos -->
+        <a href="http://google.com" class="href" v-on:click="notGoFor"> Google</a>
+        <!-- <a href="http://google.com" class="href" v-on:click.prevent=""> Google</a> -->
+    </div>
+</body>
+
+
+<script>
+    const v = new Vue({
+        el: '#app',
+        data: {
+            count: 0,
+            x: 0,
+            y: 0,
+        },
+        methods: {
+            sum(quantify, e){
+                console.log(e)
+                this.count += quantify;
+            },
+            getCordernates(e) {
+                // mesmo que você n passe o evento explicitamente no html, ele sempre poderar ser acessado pelo método
+                // mas caso você passe algum parâmetro, então você precisa passar ele usando $event -> palavra chave do javascript
+                // exemplo na função sum logo ácima
+                this.x = e.clientX;
+                this.y = e.clientY;
+            },
+            stop(e) {
+                e.stopPropagation();
+            },
+            notGoFor(e) {
+                e.preventDefault();
+            }
+        },
+    });
+</script>
+
+</html>
