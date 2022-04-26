@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="increase">Aumentar</button>
+        <button v-on:click="countTwo++">Aumentar 2</button>
+        <button v-on:click="decrease">Diminuir</button>
+        <p>
+            {{ count }} - {{ countTwo}}
+        </p>
+        <p>
+            {{ result }}
+        </p>
+    </div>
+</body>
+
+
+<script>
+    const v = new Vue({
+        el: '#app',
+        data: {
+            count: 0,
+            countTwo: 0,
+        },
+        computed: {
+            result() {
+                // Esse método só é chamado quando a propriedade count é atualizada, diferente de quando estava dentro de métodos
+                // por ser uma propriedade computada, o vue entende que não precisa calcular sempre e mantém o valor no cachê
+                // outro ponto é que propriedades do tipo computed, precisam ser sincronas, precisam já estar prontas para serem
+                // apresentadas no teamplate.
+                return this.count >= 5 ? 'Maior ou igual a 5' : 'Menor que 5'
+            }
+        },
+        methods: {
+            increase() {
+                this.count++;
+            },
+            decrease() {
+                this.count--;
+
+            },
+        }
+    });
+</script>
+
+</html>
