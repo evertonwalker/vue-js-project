@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<style>
+    .caixas {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .demo {
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+    }
+
+    .c1 {
+        background-color: red;
+    }
+
+    .c2 {
+        background-color: green;
+    }
+
+    .girar {
+        transform: rotate(45deg);
+    }
+
+</style>
+
+<body>
+    <div id="app">
+        <div class="caixas">
+            <div class="demo" :style="{backgroundColor: cor}"></div>
+            <!-- <div class="demo" :style="{'background-color': cor}"></div> -->
+            <div class="demo" :style="myStyle"></div>
+            <div class="demo"></div>
+        </div>
+        <hr />
+        <input type="text" v-model="cor">
+        <input type="text" v-model="largura">
+    </div>
+</body>
+
+
+<script>
+    const v = new Vue({
+        el: '#app',
+        data: {
+            cor: 'red',
+            largura: 100,
+        },
+        computed: {
+            myStyle(){
+                return {
+                    backgroundColor: this.cor,
+                    width: `${this.largura}px`
+                }
+            }
+        }
+
+    });
+</script>
+
+</html>
