@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Iterando um array de objetos. -->
+        <template v-for="pessoa in pessoas">
+            <h1>{{ pessoa.nome }} </h1>
+
+            <!-- Iterando os atributos de um objeto -->
+            <template v-for="(valor, chave, index) in pessoa">
+                <p>
+                    {{ chave }} = {{ valor }} - Index: {{ index }}
+                </p>
+            </template>
+
+        </template>
+        <template v-for="n in 20">
+            <p>
+                {{ n }}
+            </p>
+        </template>
+    </div>
+</body>
+
+
+<script>
+    const v = new Vue({
+        el: '#app',
+        data: {
+            cores: ['vermelho', 'verde', 'amarelo', 'azul'],
+            pessoas: [
+                { nome: 'Ana', idade: 26, peso: 56 },
+                { nome: 'Everton', idade: 26, peso: 23 },
+                { nome: 'Gio', idade: 40, peso: 11 },
+            ]
+
+        }
+    });
+</script>
+
+<style>
+
+</style>
+
+</html>

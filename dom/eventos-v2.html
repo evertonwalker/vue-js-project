@@ -35,7 +35,9 @@
                 this.count++;
             },
             getCordernates(e) {
-                // mesmo que você n passe o evento explicitamente no html, ele sempre poderar ser acessado pelo método
+                // mesmo que você n passe o evento explicitamente no html, ele poderar ser acessado pelo método caso 
+                // só possua ele como parâmetro, caso existam mais parâmetros você precisa passar esse explicitamente usando
+                // $event
                 this.x = e.clientX;
                 this.y = e.clientY;
             }

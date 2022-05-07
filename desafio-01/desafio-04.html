@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <div>
+            <h2>
+                If else da maágica
+            </h2>
+            <button @click="verFrase = !verFrase">
+                Alterar frase de mudança!
+            </button>
+            <div>
+                <p v-if="verFrase">
+                    Você quer me ver!?
+                </p>
+                <p v-else="verFrase">
+                    Você não quer me ver mais?
+                </p>
+            </div>
+
+
+        </div>
+        <div>
+            <h2>
+                Lista bonitinha com index
+                <ul>
+                    <li v-for="(cor, index) in cores"> {{ cor }} - {{ index }} </li>
+                </ul>
+            </h2>
+        </div>
+        <div>
+            <h2>
+                Lista com chave e valor
+                <ul>
+                    <li v-for="livro in livros">
+                        <span v-for="(chave, valor) in livro">
+                            {{ chave }} - {{ valor }}
+                        </span>
+                    </li>
+                </ul>
+            </h2>
+        </div>
+        <div>
+            <ul>
+               <li v-for="aluno in alunos">
+                   <p>
+                       {{ aluno.nome }}
+                       <ul>
+                           <li v-for="nota in aluno.notas">
+                            {{ nota }}
+                           </li>
+                       </ul>
+                   </p>
+               </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            verFrase: true,
+            cores: ['red', 'blue', 'green'],
+            livros: [
+                { titulo : 'Game of thrones', autor: 'G G R Martin', volume: '6'},
+                { titulo : 'Senhor dos aneis', autor: 'G G R Martin', volume: '6'}
+            ],
+            alunos: [
+                { nome: 'Walker', notas: [ 5, 6, 7]},
+                { nome: 'Gio', notas: [ 7, 8, 9]},
+            ]
+        }
+
+    });
+</script>
+
+</html>
