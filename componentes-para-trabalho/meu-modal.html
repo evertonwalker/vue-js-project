@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<div id="app">
+    <button class="show-modal" @click="showModal = true">show modal</button>
+</div>
+
+<style>
+    .modal-backdrop {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal {
+        background: #FFFFFF;
+        box-shadow: 1px 1px 10px 1px;
+        height: 320px;
+        width: 300px;
+        border-radius: 4px;
+    }
+
+    .container-closed {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .button-closed {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 21px;
+        margin-right: 4%;
+        margin-top: 4%;
+        cursor: pointer;
+    }
+
+    .modal-content {
+        display: flex;
+        justify-content: center;
+    }
+
+    .title-modal{
+        font-size: 30px;
+        padding-bottom: 10%;
+    }
+
+    textarea {
+        width: 70%;
+        border-radius: 4px;
+        margin-bottom: 15%;
+    }
+
+    .button-send {
+       background-color: #1F8BF3;
+       padding: 14px 26px;
+       border-radius: 4px;
+       border: none;
+       color: White;
+       font-size: 14px;
+       cursor: pointer; 
+    }
+
+    .modal-fade-enter,
+    .modal-fade-leave-to {
+        opacity: 0;
+    }
+
+    .modal-fade-enter-active,
+    .modal-fade-leave-active {
+        transition: opacity .5s ease;
+    }
+
+</style>
+<script>
+    new Vue ({
+        el: "#app",
+        name: 'Modal',
+        data: {
+            showModal: false
+        },
+        methods: {
+            close() {
+                this.$emit('close');
+            },
+        },
+    });
+</script>
+
+</html>
