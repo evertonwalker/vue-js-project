@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+</body>
+
+
+<script>
+    const vm1 = new Vue({
+        template: `
+        <div>
+            <h1>{{ aula }} </h1>
+            <h2>{{ modulo }} </h2>
+            <button @click="alteraAula">Alterar aula</button>
+            <button @click="alteraModulo">Alterar Modulo</button>
+        </div>
+        `,
+        data: {
+            aula: 'Aula Montando instancia Vue',
+            modulo: 'Modulo 1',
+        },
+        methods: {
+            alteraAula() {
+                this.aula += "!!";
+            },
+            alteraModulo() {
+                this.modulo += "!!";
+            },
+        }
+    });
+
+
+    // vm1.$mount("#app"); 
+    vm1.$mount(); // quando você chama o mount automaticamente ele já deixa o elemeento $el pronto para ser usado
+    // só precisa ter algo no template para ele poder rendenrizar
+    document.querySelector('#app').appendChild(vm1.$el);
+
+</script>
+
+</html>
