@@ -11,6 +11,39 @@
 
 <div id="app">
     <button class="show-modal" @click="showModal = true">show modal</button>
+    
+    <template v-if="showModal">
+        <transition name="modal-fade">
+            <div class="modal-backdrop">
+                <div class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+                    <div class="container-closed">
+                        <button class="button-closed" @click="showModal = false">
+                            X
+                        </button>
+                    </div>
+        
+                    <div>
+                        <div class="modal-content">
+                            <span class="title-modal">
+                                Report
+                            </span>
+                        </div>
+                        <div class="modal-content">
+                        <textarea id="story" name="story" rows="6" cols="33">
+                        </textarea>
+                        </div >
+        
+                        <div class="modal-content">
+                            <button class="button-send" >
+                                Send
+                            </button>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </template>
 </div>
 
 <style>
